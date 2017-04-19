@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import Flask, request, Blueprint
+from flask import Flask, request, Blueprint, render_template, make_response
 
 
 app = Flask(__name__)
@@ -14,7 +14,7 @@ def ping():
 #import mars.www.home
 @app.route('/')
 def home():
-    return '<h1>Hello</h1>'
+    return make_response(render_template('home.html'))
 
 
 if __name__ == "__main__":
