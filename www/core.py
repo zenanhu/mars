@@ -11,8 +11,10 @@ def ping():
     return 'pong'
 
 
-#import mars.www.home
-@app.route('/')
+import mars.www.home
+
+
+@app.route('/a')
 def home():
     return make_response(render_template('home.html'))
 
