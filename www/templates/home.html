@@ -3,5 +3,21 @@
 {% block body %}
     <div>
         <h1>Hello</h1>
+        <span id="button" style="border: 1px solid #eeeeee; padding: 10px; background-color: #ff00ff;">test</span>
     </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#button').click(function(e) {
+                $.ajax({
+                    url: '/message',
+                    method: 'POST'
+                }).done(function() {
+                    alert('1');
+                });
+            });
+        });
+    </script>
 {% endblock %}
