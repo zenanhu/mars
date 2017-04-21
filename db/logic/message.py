@@ -36,11 +36,11 @@ def get_message(id):
 def insert_message(title, content):
     conn = get_conn()
     cursor = conn.cursor()
-    query = """insert into Message (title, content) VALUES (%s, %s)""" % (title, content)
+    query = """insert into Message (title, content) VALUES ('%s', '%s')""" % (title, content)
     try:
         cursor.execute(query)
         conn.commit()
-    except:
+    except MySQLdb.Error, e:
         conn.rollback()
 
     cursor.close()
