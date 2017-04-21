@@ -27,18 +27,17 @@ def before_request_logging():
     ]))
 
 
+@app.route('/googleb591a2ae56260ef9.html')
+def google_verify():
+    return make_response(render_template('googleb591a2ae56260ef9.html'))
+
+
 @app.route('/ping')
 def ping():
     return 'pong'
 
 
 import mars.www.home
-
-
-@app.route('/a')
-def home():
-    raise e
-    return make_response(render_template('home.html'))
 
 
 if __name__ == "__main__":
