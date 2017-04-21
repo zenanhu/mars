@@ -7,7 +7,11 @@
 {% block body %}
     <div>
         <h1>Hello</h1>
+        <input id="message" type="text" >
         <span id="button" style="border: 1px solid #eeeeee; padding: 10px; background-color: #ff00ff;">test</span>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
 
@@ -15,9 +19,11 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#button').click(function(e) {
+                var message = $('#message').val();
                 $.ajax({
                     url: '/message',
-                    method: 'POST'
+                    method: 'POST',
+                    data: {'message': message}
                 }).done(function() {
                     alert('1');
                 });
