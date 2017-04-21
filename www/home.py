@@ -9,7 +9,6 @@ from mars.www.core import app
 @app.route('/')
 @render_request('home.html')
 def home_test():
-
     return {
 
     }
