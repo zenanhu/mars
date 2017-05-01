@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import render_template, make_response
+from flask import render_template, make_response, request
 
 from mars.www.base import json_request, render_request
 from mars.www.core import app
@@ -20,7 +20,8 @@ def home_test():
 
 @app.route('/message', methods=['POST'])
 @json_request()
-def leave_message(message):
+def leave_message():
+    message = request.form['message']
     mars.db.logic.message.insert_message(message, message)
     return {
         'data': 'success',
