@@ -25,3 +25,10 @@ def leave_message(message):
     return {
         'data': 'success',
     }
+
+
+@app.route('/404', methods=['GET'])
+@render_request('404.html')
+def not_found():
+    return {
+    }
