@@ -20,8 +20,7 @@ def home_test():
 
 @app.route('/message', methods=['POST'])
 @json_request()
-def leave_message():
-    message = request.form['message']
+def leave_message(message):
     mars.db.logic.message.insert_message(message, message)
     return {
         'data': 'success',
