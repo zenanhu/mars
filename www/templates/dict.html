@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block header %}
+    <title>Dictionary</title>
+{% endblock %}
+
+{% block body %}
+    <div>
+        <input id="word" type="text" >
+        <span id="button" style="color: #fff; border: 1px solid #eeeeee; padding: 10px; background-color: blue;">Search</span>
+        <span id="result"></span>
+        {% for word in words %}
+            <p>{{ words }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#button').click(function(e) {
+                var word = $('#word').val();
+                $.ajax({
+                    url: '/dict/' + word,
+                    method: 'GET'
+                }).done(function(response) {
+                    $("#result").val(response);
+                });
+            });
+        });
+    </script>
+{% endblock %}

@@ -10,7 +10,7 @@ import mars.db.logic.message
 
 @app.route('/')
 @render_request('home.html')
-def home_test():
+def home():
     messages = mars.db.logic.message.get_messages()
 
     return {
