@@ -23,6 +23,6 @@ def search_dict(word):
     word = mars.db.logic.word.get_word(word)
     return {
         'data': 'success',
-        'word': str(word),
+        'word': word[2],
     }
 

@@ -8,9 +8,15 @@
     <div>
         <input id="word" type="text" >
         <span id="button" style="color: #fff; border: 1px solid #eeeeee; padding: 10px; background-color: blue;">Search</span>
-        <span id="result"></span>
+        <div style="padding: 15px;">
+            <span>Result: </span>
+            <span id="result"></span>
+        </div>
         {% for word in words %}
-            <p>{{ words }}</p>
+        <div>
+            <span>{{ word[1] }}: </span>
+            <span> {{ word[2] }}</span>
+        </div>
         {% endfor %}
     </div>
 {% endblock %}

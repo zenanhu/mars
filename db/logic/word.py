@@ -7,7 +7,7 @@ import MySQLdb
 def get_conn():
     conn = MySQLdb.connect(user='space', passwd='space',
                            host='localhost',
-                           db='mars')
+                           db='mars', charset='utf8')
     return conn
 
 
