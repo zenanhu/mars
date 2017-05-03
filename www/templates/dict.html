@@ -24,7 +24,7 @@
                     url: '/dict/' + word,
                     method: 'GET'
                 }).done(function(response) {
-                    $("#result").val(response);
+                    $("#result").text(response.word);
                 });
             });
         });

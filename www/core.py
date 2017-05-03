@@ -38,6 +38,7 @@ def ping():
 
 
 import mars.www.home
+import mars.www.word
 
 
 if __name__ == "__main__":

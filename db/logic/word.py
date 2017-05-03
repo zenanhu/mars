@@ -25,7 +25,7 @@ def get_words():
 def get_word(word):
     conn = get_conn()
     cursor = conn.cursor()
-    query = """select * from Dict WHERE word=%s""" % word
+    query = """select * from Dict WHERE word='%s'""" % word
     cursor.execute(query)
     row = cursor.fetchone()
     cursor.close()
