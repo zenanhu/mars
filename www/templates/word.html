@@ -8,7 +8,7 @@
     <div>
         <form>
             <input name="word" placeholder="Please input"/>
-            <button>Search</button>
+            <button id="button">Search</button>
         </form>
         <div style="padding: 15px;">
             <span>Result: </span>
@@ -20,7 +20,10 @@
 {% block javascript %}
     <script type="text/javascript">
         $(document).ready(function() {
-
+            $('#button').click(function(e) {
+                var word = $('#word').val();
+                window.location.href = '/dict/' + word;
+            });
         });
     </script>
 {% endblock %}
