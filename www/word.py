@@ -18,11 +18,10 @@ def dictionary():
 
 
 @app.route('/dict/<word>', methods=['GET'])
-@json_request()
+@render_request('word.html')
 def search_dict(word):
     word = mars.db.logic.word.get_word(word)
     return {
-        'data': 'success',
         'word': word[2],
     }
 
