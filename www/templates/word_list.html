@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block header %}
+    <title>Dictionary</title>
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div style="padding: 15px;">
+            <p>Result: </p>
+            {% for word in words %}
+                <span>{{ word }}</span>
+            {% endfor %}
+        </div>
+        <span id="next-button">Next</span>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        var page = 0;
+        $(document).ready(function() {
+            $('#next-button').click(function() {
+                page += 1;
+                window.location.href = "/dict/list?page="+page;
+            });
+        });
+    </script>
+{% endblock %}

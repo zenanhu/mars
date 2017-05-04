@@ -17,6 +17,15 @@ def dictionary():
     }
 
 
+@app.route('/dict/list', methods=['GET'])
+@render_request('word_list.html')
+def search_dict(page):
+    words = mars.db.logic.word.get_words(page)
+    return {
+        "words": words,
+    }
+
+
 @app.route('/dict/<word>', methods=['GET'])
 @render_request('word.html')
 def search_dict(word):

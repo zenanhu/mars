@@ -11,10 +11,10 @@ def get_conn():
     return conn
 
 
-def get_words():
+def get_words(page=0, limit=10):
     conn = get_conn()
     cursor = conn.cursor()
-    query = """select * from Dict limit 10"""
+    query = """select * from Dict limit %s, %s""" % page, limit
     cursor.execute(query)
     results = cursor.fetchall()
     cursor.close()
