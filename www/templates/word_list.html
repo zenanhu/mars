@@ -9,7 +9,10 @@
         <div style="padding: 15px;">
             <p>Result: </p>
             {% for word in words %}
-                <span>{{ word }}</span>
+                <div>
+                    <span>{{ word[1] }}: </span>
+                    <span>{{ word[2] }}</span>
+                </div>
             {% endfor %}
         </div>
         <span id="next-button">Next</span>
@@ -18,7 +21,7 @@
 
 {% block javascript %}
     <script type="text/javascript">
-        var page = 0;
+        var page = {{ page }};
         $(document).ready(function() {
             $('#next-button').click(function() {
                 page += 1;
