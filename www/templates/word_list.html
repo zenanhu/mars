@@ -10,8 +10,8 @@
             <p>Result: </p>
             {% for word in words %}
                 <div>
-                    <span>{{ word[1] }}: </span>
-                    <span>{{ word[2] }}</span>
+                    <a href="/dict/word/{{word[1]}}">{{ word[1] }}</a>
+                    <span>: {{ word[2] }}</span>
                 </div>
             {% endfor %}
         </div>
