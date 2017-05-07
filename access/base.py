@@ -5,7 +5,7 @@
 class MarsAccessBase(object):
 
     def __init__(self, *args, **kwargs):
-        this._resources = kwargs.get('resources', base_resources())
+        self._resources = kwargs.get('resources', base_resources())
 
 
 def base_resources():
