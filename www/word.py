@@ -10,7 +10,7 @@ from mars.www.core import app
 import mars.db.logic.word
 
 
-@app.route('/dict')
+@app.route('/dict', methods=['GET'], strict_slashes=False)
 @render_request('dict.html')
 def dictionary():
     words = mars.db.logic.word.get_words()
