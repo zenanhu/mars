@@ -1,17 +1,16 @@
+#!/usr/bin/env python
 # coding: utf-8
 
-from flask import render_template, make_response, request
+import mars.app.message
 
 from mars.www.base import json_request, render_request
 from mars.www.core import app
-
-import mars.db.logic.message
 
 
 @app.route('/')
 @render_request('home.html')
 def home():
-    messages = mars.db.logic.message.get_messages()
+    messages = mars.app.message.get_messages(page=0, size=0)
 
     return {
         'messages': messages
@@ -21,9 +20,10 @@ def home():
 @app.route('/message', methods=['POST'])
 @json_request()
 def leave_message(message):
-    mars.db.logic.message.insert_message(message, message)
+    mid = mars.app.message.create_message(message, message)
     return {
-        'data': 'success',
+        'rc': 0,
+        'message_id': mid,
     }
 
 
