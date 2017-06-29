@@ -1,0 +1,10 @@
+Generic single-database configuration.
+
+# Create database
+CREATE DATABASE IF NOT EXISTS mars DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+# How to migrate database
+`alembic upgrade head`
+
+# How to generate migration revision
+`alembic revision --autogenerate -m "{ YOUR COMMENT }"`
