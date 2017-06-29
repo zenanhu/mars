@@ -5,10 +5,11 @@ import copy
 import logging
 
 from functools import wraps
-from flask import jsonify, render_template, make_response, redirect, request, abort
+from flask import Flask, jsonify, render_template, make_response, redirect, request, abort
 import werkzeug.exceptions as http_exceptions
 
-from mars.www.core import app
+
+app = Flask(__name__)
 
 
 def log_request():

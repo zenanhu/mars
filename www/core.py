@@ -6,8 +6,7 @@ from flask import Flask, request, Blueprint, render_template, make_response
 import logging
 import datetime
 
-
-app = Flask(__name__)
+from mars.www.base import app
 
 
 def init_logger(app):

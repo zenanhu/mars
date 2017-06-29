@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from mars.www.base import json_request, render_request
-from mars.www.core import app
+from mars.www.base import app
 
 import mars.app.word
 

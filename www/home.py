@@ -4,7 +4,7 @@
 import mars.app.message
 
 from mars.www.base import json_request, render_request
-from mars.www.core import app
+from mars.www.base import app
 
 
 @app.route('/')
