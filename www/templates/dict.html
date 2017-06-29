@@ -11,8 +11,8 @@
 
         {% for word in words %}
         <div>
-            <span>{{ word[1] }}: </span>
-            <span> {{ word[2] }}</span>
+            <span>{{ word['word'] }}: </span>
+            <span> {{ word['autoSugg'] }}</span>
         </div>
         {% endfor %}
 
