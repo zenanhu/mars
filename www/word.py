@@ -4,7 +4,6 @@
 from mars.www.base import json_request, render_request
 from mars.www.core import app
 
-import mars.db.logic.word
 import mars.app.word
 
 

@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS `Dict` (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    word TEXT,
-    autoSugg TEXT,
-    Defi TEXT NOT NULL,
-}
