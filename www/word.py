@@ -1,19 +1,17 @@
+#!/usr/bin/env python
 # coding: utf-8
-
-from flask import render_template, make_response, request
-
-from mars.access.dict import AccessDict
 
 from mars.www.base import json_request, render_request
 from mars.www.core import app
 
 import mars.db.logic.word
+import mars.app.word
 
 
 @app.route('/dict', methods=['GET'], strict_slashes=False)
 @render_request('dict.html')
 def dictionary():
-    words = mars.db.logic.word.get_words()
+    words = mars.app.word.get_words(0, 0)
     return {
         "words": words,
     }
@@ -22,7 +20,7 @@ def dictionary():
 @app.route('/dict/list', methods=['GET'])
 @render_request('word_list.html')
 def dict_list(page=0):
-    words = mars.db.logic.word.get_words(page)
+    words = mars.app.word.get_words(page)
     return {
         'words': words,
         'page': page,
@@ -32,8 +30,8 @@ def dict_list(page=0):
 @app.route('/dict/word/<word>', methods=['GET'])
 @render_request('word.html')
 def search_dict(word):
-    word = AccessDict().get_word(None, word)
+    word = mars.app.word.get_word(word)
     return {
-        'word': word[2],
+        'word': word['autoSugg'],
     }
 

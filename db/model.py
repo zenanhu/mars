@@ -19,8 +19,8 @@ message = Table(
     mysql_engine='InnoDB'
 )
 
-dict = Table(
-    'Dict',
+word = Table(
+    'Word',
     metadata,
     Column('id', Integer, primary_key=True),
     Column('word', String(300), nullable=True),

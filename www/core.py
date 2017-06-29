@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding: utf-8
 
 from flask import Flask, request, Blueprint, render_template, make_response
