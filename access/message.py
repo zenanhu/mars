@@ -34,6 +34,6 @@ class Message(Base):
             message.c.time_removed == 0
         ))
         if page >= 0 and size > 0:
-            q.limit(size).offset(page*size)
+            q = q.limit(size).offset(page*size)
         with db_query(self, q) as r:
             return [row_to_dict(x) for x in r.fetchall()]

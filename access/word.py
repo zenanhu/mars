@@ -11,6 +11,12 @@ from mars.db.model import word
 class Word(Base):
     __metaclass__ = Singleton
 
+    def update_word(self, wid, **kwargs):
+        with open_transaction(self) as conn:
+            conn.execute(word.update().where(and_(
+                word.c.id == wid,
+            )).values(**kwargs))
+
     def get_word(self, w):
         q = select([word]).where(and_(
             word.c.word == w,
@@ -28,6 +34,6 @@ class Word(Base):
     def get_words(self, page=0, size=0):
         q = select([word])
         if page >= 0 and size > 0:
-            q.limit(size).offset(page * size)
+            q = q.limit(size).offset(page * size)
         with db_query(self, q) as r:
             return [row_to_dict(x) for x in r.fetchall()]

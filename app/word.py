@@ -4,6 +4,10 @@
 from mars.access.word import Word
 
 
+def update_word(wid, sentences):
+    Word().update_word(wid, sentences=sentences)
+
+
 def get_word(word):
     word = Word().get_word(word)
     return word
