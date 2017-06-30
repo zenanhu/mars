@@ -24,8 +24,8 @@ word = Table(
     metadata,
     Column('id', Integer, primary_key=True),
     Column('word', String(300), nullable=True),
-    Column('autoSugg', TEXT, nullable=True),
-    Column('Defi', TEXT, nullable=False),
+    Column('value', TEXT, nullable=True),
+    Column('sentences', TEXT, nullable=True),
     mysql_engine='InnoDB'
 )
 
