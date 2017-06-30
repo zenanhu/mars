@@ -10,7 +10,7 @@ import mars.app.word
 @app.route('/dict', methods=['GET'], strict_slashes=False)
 @render_request('dict.html')
 def dictionary():
-    words = mars.app.word.get_words(0, 0)
+    words = mars.app.word.get_words(0, 100)
     return {
         "words": words,
     }
@@ -19,6 +19,7 @@ def dictionary():
 @app.route('/dict/list', methods=['GET'])
 @render_request('word_list.html')
 def dict_list(page=0):
+    page = int(page)
     words = mars.app.word.get_words(page)
     return {
         'words': words,
@@ -31,6 +32,6 @@ def dict_list(page=0):
 def search_dict(word):
     word = mars.app.word.get_word(word)
     return {
-        'word': word['autoSugg'],
+        'word': word['value'],
     }
 

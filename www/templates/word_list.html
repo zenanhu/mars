@@ -11,7 +11,7 @@
             {% for word in words %}
                 <div>
                     <a href="/dict/word/{{word['word']}}">{{ word['word'] }}</a>
-                    <span>: {{ word['autoSugg'] }}</span>
+                    <span>: {{ word['value'] }}</span>
                 </div>
             {% endfor %}
         </div>
