@@ -11,7 +11,8 @@ from mars.www.base import app
 
 @app.route('/vue')
 def vue():
-    return send_file('spa/dist/index.html')
+    return send_file('client/dist/index.html')
+
 
 @app.route('/')
 @render_request('home.html')
