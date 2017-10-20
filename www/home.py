@@ -1,11 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+from flask import send_file
+
 import mars.app.message
 
 from mars.www.base import json_request, render_request
 from mars.www.base import app
 
+
+@app.route('/vue')
+def vue():
+    return send_file('spa/dist/index.html')
 
 @app.route('/')
 @render_request('home.html')
