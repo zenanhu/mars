@@ -9,12 +9,12 @@ from mars.www.base import json_request, render_request
 from mars.www.base import app
 
 
-@app.route('/vue')
+@app.route('/')
 def vue():
     return send_file('client/dist/index.html')
 
 
-@app.route('/')
+@app.route('/tmp')
 @render_request('home.html')
 def home():
     messages = mars.app.message.get_messages(page=0, size=0)
