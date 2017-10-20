@@ -1,23 +1,49 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <v-app id="inspire">
+        <v-navigation-drawer 
+            v-model="drawer"
+            clipped persistent enable-resize-watcher app>
+
+            <v-list dense>
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>home</v-icon>
+                    </v-list-tile-action>
+
+                    <v-list-tile-content>
+                        <v-list-tile-title>Home</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-toolbar color="indigo" dark clipped-left fixed app>
+            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <v-toolbar-title>Mars</v-toolbar-title>
+        </v-toolbar>
+
+        <main>
+            <v-content>
+                <v-container fluid fill-height>
+                    <router-view/>
+                </v-container>
+            </v-content>
+        </main>
+    </v-app>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data: () => ({
+    drawer: true
+  })
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
