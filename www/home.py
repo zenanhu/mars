@@ -24,6 +24,15 @@ def home():
     }
 
 
+@app.route('/messages', methods=['GET'])
+@json_request()
+def get_messages():
+    messages = mars.app.message.get_messages(page=0, size=0)
+    return {
+        'messages': messages
+    }
+
+
 @app.route('/message', methods=['POST'])
 @json_request()
 def leave_message(message):

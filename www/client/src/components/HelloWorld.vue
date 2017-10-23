@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
     <h5>{{ msg }}</h5>
+    <div>
+      <p v-for="message in messages">{{ message.content }}</p>
+    </div>
   </div>
 </template>
 
@@ -9,8 +12,25 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome'
+      msg: 'Welcome',
+      messages: []
     }
+  },
+  methods: {
+    fetchMessages () {
+      var self = this
+      this.axios.get('/messages')
+        .then(function (response) {
+          var data = response.data
+          self.messages = self.messages.concat(data.messages)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  },
+  mounted () {
+    this.fetchMessages()
   }
 }
 </script>
