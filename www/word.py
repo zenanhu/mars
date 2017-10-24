@@ -7,7 +7,16 @@ from mars.www.base import app
 import mars.app.word
 
 
-@app.route('/dict', methods=['GET'], strict_slashes=False)
+@app.route('/words', methods=['GET'])
+@json_request()
+def words():
+    words = mars.app.word.get_words(0, 100)
+    return {
+        "words": words,
+    }
+
+
+@app.route('/dict1', methods=['GET'], strict_slashes=False)
 @render_request('dict.html')
 def dictionary():
     words = mars.app.word.get_words(0, 100)

@@ -6,7 +6,7 @@
             clipped persistent enable-resize-watcher app>
 
             <v-list dense>
-                <v-list-tile @click="">
+                <v-list-tile :to="{path: '/'}" :route="true">
                     <v-list-tile-action>
                         <v-icon>home</v-icon>
                     </v-list-tile-action>
@@ -16,13 +16,23 @@
                     </v-list-tile-content>
                 </v-list-tile>
 
-                <v-list-tile @click="">
+                <v-list-tile to="/dict" :route="true">
                     <v-list-tile-action>
                         <v-icon>font_download</v-icon>
                     </v-list-tile-action>
 
                     <v-list-tile-content>
                         <v-list-tile-title>Dictory</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+
+                <v-list-tile to="/about" :route="true">
+                    <v-list-tile-action>
+                        <v-icon>free_breakfast</v-icon>
+                    </v-list-tile-action>
+
+                    <v-list-tile-content>
+                        <v-list-tile-title>About</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>

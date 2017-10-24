@@ -9,8 +9,9 @@ from mars.www.base import json_request, render_request
 from mars.www.base import app
 
 
-@app.route('/')
-def vue():
+@app.route('/', methods=['GET'], strict_slashes=False)
+@app.route('/<path:path>', methods=['GET'], strict_slashes=False)
+def vue(path=''):
     return send_file('client/dist/index.html')
 
 
