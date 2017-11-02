@@ -38,9 +38,11 @@ def get_messages():
 @json_request()
 def leave_message(message):
     mid = mars.app.message.create_message(message, message)
+    message = mars.app.message.get_message(mid)
     return {
         'rc': 0,
         'message_id': mid,
+        'message': message,
     }
 
 
