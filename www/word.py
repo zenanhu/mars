@@ -37,7 +37,7 @@ def dict_list(page=0):
 
 
 @app.route('/dict/word/<word>', methods=['GET'])
-@render_request('word.html')
+@json_request()
 def search_dict(word):
     word = mars.app.word.get_word(word)
     return {
