@@ -9,8 +9,9 @@ import mars.app.word
 
 @app.route('/words', methods=['GET'])
 @json_request()
-def words():
-    words = mars.app.word.get_words(0, 100)
+def words(page=0, size=30):
+    page = int(page)
+    words = mars.app.word.get_words(page, size)
     return {
         "words": words,
     }
@@ -26,7 +27,7 @@ def dictionary():
 
 
 @app.route('/dict/list', methods=['GET'])
-@render_request('word_list.html')
+@json_request()
 def dict_list(page=0):
     page = int(page)
     words = mars.app.word.get_words(page)

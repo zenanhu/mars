@@ -12,6 +12,7 @@
       <p v-if="result">Search result: {{ result }}</p>
 
       <p v-for="word in words">{{ word.word }}: {{ word.value }}</p>
+      <v-btn color="primary" dark id="load-more" type="button" @click="fetchWords()">Load more</v-btn>
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ export default {
   name: 'Dict',
   data () {
     return {
+      page: 0,
       word: '',
       result: '',
       words: []
@@ -40,10 +42,11 @@ export default {
     },
     fetchWords () {
       var self = this
-      this.axios.get('/words')
+      this.axios.get('/words?page=' + self.page)
         .then(function (response) {
           var data = response.data
           self.words = self.words.concat(data.words)
+          self.page += 1
         })
         .catch(function (error) {
           console.log(error)
