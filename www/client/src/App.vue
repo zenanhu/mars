@@ -26,6 +26,16 @@
                     </v-list-tile-content>
                 </v-list-tile>
 
+                <v-list-tile to="/bmi" :route="true">
+                    <v-list-tile-action>
+                        <v-icon>accessibility</v-icon>
+                    </v-list-tile-action>
+
+                    <v-list-tile-content>
+                        <v-list-tile-title>BMI</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+
                 <v-list-tile to="/about" :route="true">
                     <v-list-tile-action>
                         <v-icon>free_breakfast</v-icon>
