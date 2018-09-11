@@ -22,7 +22,7 @@
                     </v-list-tile-action>
 
                     <v-list-tile-content>
-                        <v-list-tile-title>Dictory</v-list-tile-title>
+                        <v-list-tile-title>Dictionary</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
 
