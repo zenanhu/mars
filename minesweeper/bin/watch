@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+node_modules/.bin/webpack --config webpack.config.js -w --port 3000 --hot --host 0.0.0.0
