@@ -1,9 +1,9 @@
-import React from 'react';
-import Title from './Title/index.jsx';
-import Outer from './Outer/index.jsx';
-import styles from './styles.css';
+import React from "react";
+import Title from "./Title/index.jsx";
+import Outer from "./Outer/index.jsx";
+import styles from "./styles.css";
 
-console.log(styles);
+// console.log(styles);
 
 class Game extends React.Component {
   getChildContext() {
@@ -15,7 +15,7 @@ class Game extends React.Component {
     const width = cols * 16 + 20;
 
     return (
-      <div className={styles.minesweeper} style={{width: width}}>
+      <div className={styles.minesweeper} style={{ width: width }}>
         <Title />
         <Outer />
       </div>

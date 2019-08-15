@@ -25,6 +25,7 @@
     "ajv-errors": "^1.0.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-native": "^4.0.1",
+    "firebase": "^6.3.5",
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.15",
     "mines": "^1.1.3",
