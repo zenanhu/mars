@@ -15,6 +15,14 @@ const renderComponent = element => {
 
   const game = create({ preset: preset });
 
+  game.onGameStateChange(function(state, oldState) {
+    console.log("game changed", oldState, state);
+    console.log(game.renderAsString());
+  });
+  game.onCellStateChange(function(cell, state, oldState) {
+    console.log("cell", cell, "changed from", oldState, "to", state);
+  });
+
   const name = element.getAttribute("data-name");
 
   if (name) {
@@ -22,7 +30,7 @@ const renderComponent = element => {
   }
 
   if (element.getAttribute("data-robot")) {
-    console.log(">>>> data-robot")
+    console.log(">>>> data-robot");
     const ms = parseInt(element.getAttribute("data-robot"));
     const poll = () => {
       if (game.state() === gameStates.WON || game.state() === gameStates.LOST) {
@@ -35,6 +43,7 @@ const renderComponent = element => {
   }
 
   // render(<Game game={game} />, element);
+  console.log("Rendering");
   ReactDOM.render(<Game game={game} />, element);
 };
 

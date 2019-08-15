@@ -1,45 +1,46 @@
-import React from 'react';
-import styles from './styles.css';
-import styleForCellState from './styleForCellState';
-import {isEqual} from 'lodash';
+import React from "react";
+import styles from "./styles.css";
+import styleForCellState from "./styleForCellState";
+import { isEqual } from "lodash";
 
-const now = () => (new Date()).getTime();
+const now = () => new Date().getTime();
 
 class Cell extends React.Component {
   constructor(props) {
     super(props);
-    props.game.onCellStateChange(
-      (cell, state) => {
-        if (isEqual(cell, props.position)) {
-          const style = styles[styleForCellState(state)];
-          this.setState({style: style});
-        }
+    props.game.onCellStateChange((cell, state) => {
+      if (isEqual(cell, props.position)) {
+        const style = styles[styleForCellState(state)];
+        this.setState({ style: style });
       }
-    );
-    this.onMouseDown = (event) => {
-      this.setState({mouseStartPosition: props.position});
+    });
+    this.onMouseDown = event => {
+      this.setState({ mouseStartPosition: props.position });
       event.preventDefault();
     };
-    this.onMouseUp = (event) => {
+    this.onMouseUp = event => {
       const rightMouseButton = 2;
-      if (event.button !== rightMouseButton && props.position === this.state.mouseStartPosition) {
+      if (
+        event.button !== rightMouseButton &&
+        props.position === this.state.mouseStartPosition
+      ) {
         props.game.reveal(props.position);
       }
       event.preventDefault();
     };
-    this.onDoubleClick = (event) => {
+    this.onDoubleClick = event => {
       props.game.chord(props.position);
       event.preventDefault();
     };
-    this.onRightClick = (event) => {
+    this.onRightClick = event => {
       props.game.mark(props.position);
       event.preventDefault();
     };
-    this.onTouchStart = (event) => {
-      this.setState({touchStart: now(), touchStartPosition: props.position});
+    this.onTouchStart = event => {
+      this.setState({ touchStart: now(), touchStartPosition: props.position });
       event.preventDefault();
     };
-    this.onTouchEnd = (event) => {
+    this.onTouchEnd = event => {
       if (props.position === this.state.touchStartPosition) {
         const duration = now() - this.state.touchStart;
         if (duration < 500) {
@@ -50,7 +51,7 @@ class Cell extends React.Component {
       }
       event.preventDefault();
     };
-    this.onTouchMove = (event) => {
+    this.onTouchMove = event => {
       event.preventDefault();
     };
 
@@ -59,7 +60,17 @@ class Cell extends React.Component {
 
   render() {
     const className = `${styles.field} ${this.state.style}`;
-    return <td onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onDoubleClick={this.onDoubleClick} onContextMenu={this.onRightClick} onTouchEnd={this.onTouchEnd} onTouchStart={this.onTouchStart} className={className} />;
+    return (
+      <td
+        onMouseDown={this.onMouseDown}
+        onMouseUp={this.onMouseUp}
+        onDoubleClick={this.onDoubleClick}
+        onContextMenu={this.onRightClick}
+        onTouchEnd={this.onTouchEnd}
+        onTouchStart={this.onTouchStart}
+        className={className}
+      />
+    );
   }
 }
 
