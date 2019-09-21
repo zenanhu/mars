@@ -58,6 +58,18 @@ class Cell extends React.Component {
     this.state = { style: styles.unknown };
   }
 
+  mark() {
+    this.props.game.mark(this.props.position);
+  }
+
+  reveal() {
+    this.props.game.reveal(this.props.position);
+  }
+
+  chord() {
+    this.props.game.chord(this.props.position);
+  }
+
   render() {
     const className = `${styles.field} ${this.state.style}`;
     return (

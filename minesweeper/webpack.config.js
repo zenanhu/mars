@@ -36,13 +36,16 @@ module.exports = {
           },
           {
             options: {
-              modules: true,
+              modules: true
             },
             loader: "css-loader"
           }
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx"]
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
