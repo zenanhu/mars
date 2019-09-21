@@ -10,7 +10,7 @@ import "../styles/Home.scss"
 function Home(props) {
   return (
     <Grid container justify="center" alignItems="center" className="home">
-      <span>Hello, I'm Zenan</span>
+      <span>Hello, I'm Zenan.</span>
     </Grid>
   )
 }
