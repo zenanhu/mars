@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/minesweeper/minesweeper.github.io",
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "ajv-errors": "^1.0.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-native": "^4.0.1",
