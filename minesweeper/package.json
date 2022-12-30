@@ -44,7 +44,7 @@
     "eslint-plugin-react": "^5.2.2",
     "expect": "^1.20.2",
     "expect-jsx": "^2.6.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "react-addons-test-utils": "^15.1.0",
     "skin-deep": "^0.16.0",
     "style-loader": "^0.13.2",
